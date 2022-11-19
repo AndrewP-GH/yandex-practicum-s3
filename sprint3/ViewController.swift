@@ -8,12 +8,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var changeButton: UIButton!
+    
+    private var clicksCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        RefreshView(clicks: clicksCount)
     }
-
-
+    
+    @IBAction func buttonDidTap(_ sender: Any) {
+        clicksCount+=1
+        RefreshView(clicks: clicksCount)
+    }
+    
+    private func RefreshView(clicks: Int){
+        countLabel.text = String(clicksCount)
+        countLabel.sizeToFit()
+    }
 }
 
