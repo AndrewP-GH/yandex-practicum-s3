@@ -9,22 +9,22 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var changeButton: UIButton!
+    @IBOutlet weak private var countLabel: UILabel!
+    @IBOutlet weak private var changeButton: UIButton!
     
     private var clicksCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        RefreshView(clicks: clicksCount)
+        refreshView(clicks: clicksCount)
     }
     
-    @IBAction func buttonDidTap(_ sender: Any) {
+    @IBAction private func buttonDidTap(_ sender: Any) {
         clicksCount+=1
-        RefreshView(clicks: clicksCount)
+        refreshView(clicks: clicksCount)
     }
     
-    private func RefreshView(clicks: Int){
+    private func refreshView(clicks: Int){
         countLabel.text = String(clicksCount)
         countLabel.sizeToFit()
     }
